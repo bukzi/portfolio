@@ -100,6 +100,7 @@ p {
 .navbar__menu {
   display: flex;
 }
+
 .navbar__menu__item {
   padding: 8px 12px;
   margin: 0 4px;
@@ -120,6 +121,16 @@ p {
   font-weight: var(--weight-semi-bold);
 }
 
+.navbar__toggle-btn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 24px;
+  color: var(--color-white);
+  display: none;
+}
+
+/* Home */
 #home {
   background: url('Images/home-background.png') center/cover no-repeat;
   padding: 40px;
@@ -440,4 +451,47 @@ p {
   transform: scale(1.1);
   color: var(--color-yellow);
   transition: all var(--animation-duration) ease-in;
+}
+
+/* For below 768px screen width */
+@media screen and (max-width: 768px) {
+  /* toggle button은 화면 작을때만 보여서 여기다가 스타일을 적어줘야 할 것 같지만, 
+  엘리님 견해로는 여기에 최소한의 것만 작성하고, 스타일링은 밖에서, visible만 숨겨주고
+  여기서 보이고 하는 식으로 하는게 좋음.*/
+  .navbar__toggle-btn {
+    display: block;
+  }
+  #navbar {
+    flex-direction: column;
+    /* align-items 해서 이름부분 왼쪾으로 */
+    align-items: flex-start;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+
+  .about__majors {
+    flex-direction: column;
+  }
+
+  .major {
+    margin-bottom: 38px;
+  }
+
+  .skillset {
+    flex-direction: column;
+  }
+
+  .project {
+    flex-grow: 1;
+  }
+
+  .testimonials__avatar {
+    width: 80px;
+    height: 80px;
+  }
 }
