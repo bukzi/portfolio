@@ -97,6 +97,8 @@ p {
   align-items: center;
   color: var(--color-white);
   padding: 16px;
+  transition: all var(--animation-duration) ease-in-out;
+  /* 제일 위에 있어야 되니까 */
 }
 
 .navbar__menu {
@@ -121,6 +123,7 @@ p {
 #navbar.navbar--dark {
   background-color: var(--color-pink);
   padding: 8px;
+  z-index: 1;
 }
 
 .navbar__logo {
