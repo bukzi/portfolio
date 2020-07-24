@@ -10,6 +10,9 @@ document.addEventListener('scroll', () => {
   // console.log(`navbarHeight: ${navbarHeight}`);
   if (window.scrollY > navbarHeight) {
     navbar.classList.add('navbar--dark');
+    try {
+      navbarMenu.classList.remove('open');
+    } catch {}
   } else {
     navbar.classList.remove('navbar--dark');
   }
@@ -21,7 +24,14 @@ navbarMenu.addEventListener('click', (event) => {
   const target = event.target;
   const link = target.dataset.link;
   if (link == null) return;
+  navbarMenu.classList.remove('open');
   scrollintoview(link);
+});
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
 });
 
 // Handle click on "contact me" button on home
